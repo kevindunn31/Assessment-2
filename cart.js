@@ -58,13 +58,17 @@ console.log(summedPrice);
 */
 
 //CODE HERE
+const calcFinalPrice = (cartTotal, CouponVale, tax) => {
+    let finalPrice = cartTotal + (cartTotal * tax) - couponValue
+    return finalPrice
+}
 
 
 
-const calcFinalPrice = cart.map(num => num * 1.06 - 1)
+//const calcFinalPrice = cart.map(num => num * 1.06 - 1)
 
 
-console.log(calcFinalPrice)
+console.log(calcFinalPrice[10, 5, 2])
 
 
 
