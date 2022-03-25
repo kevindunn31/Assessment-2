@@ -93,6 +93,8 @@ subtract (5.99, 1, priceOfPizza) => {
 */
 
 //CODE HERE
+const { category } = pizza;
+console.log(category);
 
 
 //////////////////PROBLEM 3////////////////////
@@ -109,7 +111,12 @@ subtract (5.99, 1, priceOfPizza) => {
 
 //CODE HERE
 
-const foodArr = ["Breakfast", "Brunch", "Lunch", "Snack", "Dinner"]
+const foodArr = [
+    { name: 'Sausage Pizza', price: 18.99, category: 'classic', popularity: 5, rating: 100, tags: ['classic', 'has meat', 'customer likes'] },
+    { name: 'Salad', price: 4.99, category: 'salad', popularity: 3, rating: 77, tags: ['salad', 'health', 'vegetarian'] }, ,
+    { name: 'Mozz Sticks', price: 5.99, category: 'appetizer', popularity: 3.5, rating: 42, tags: ['snack', 'cheesy', 'breaded'] },
+    { name: 'Bread', price: 2.99, category: 'bread', popularity: 3.7, rating: 77, tags: ['Cuisine', 'breadeds', 'traditional'] },
+    { name: 'Cheese Pizza', price: 12.99, category: 'classic', popularity: 5, rating: 90, tags: ['classic', 'cheesy', 'customer likes'] }]
 
 
 
@@ -129,8 +136,13 @@ const foodArr = ["Breakfast", "Brunch", "Lunch", "Snack", "Dinner"]
 
 // const filteredFood = foodArr.filter(/* CALLBACK HERE */)
 
-const filteredArr = foodArr.filter(element => element === 'B')
-console.log(filteredArr.startsWith('B'))
+const filteredFood = foodArr.filter(function (element) {
+    if (element.tags.includes('cheesy')) {
+        return element;
+    }
+})
+
+console.log(filteredFood);
 
 
 //////////////////PROBLEM 5////////////////////
@@ -173,7 +185,18 @@ console.log(filteredArr.startsWith('B'))
 */
 
 //CODE HERE
+function filterByProperty(property, number, type) {
+    let filteredArray = foodArr.filter((element) => {
+        if (type === 'below') {
+            return element[property] < number;
+        }
+        else if (type === 'above') {
+            return element[property] > number;
+        }
+    });
 
+    return filteredArray;
+}
 
 /*
     Invoke the `filterByProperty` function passing
@@ -183,3 +206,4 @@ console.log(filteredArr.startsWith('B'))
 */
 
 //CODE HERE
+console.log(filterByProperty('popularity', 3, 'below'));

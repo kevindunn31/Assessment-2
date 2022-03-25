@@ -37,8 +37,10 @@ const cart = [
 
 // const summedPrice = cart.reduce(/* CALLBACK HERE */)
 
-const iP = 0;
-const summedPrice = cart.reduce((acc, curr) => acc + curr, iP);
+
+const summedPrice = cart.reduce(function(acc, curr) {
+    return acc + curr.price
+})
 console.log(summedPrice);
 
 
@@ -59,9 +61,11 @@ console.log(summedPrice);
 
 //CODE HERE
 const calcFinalPrice = (cartTotal, CouponVale, tax) => {
-    let finalPrice = cartTotal + (cartTotal * tax) - couponValue
-    return finalPrice
+    let finalPrice = ((cartTotal *= (1 + tax)) - couponValue);
+    console.log(finalPrice);
 }
+calcFinalPrice(summedPrice, .50, .06);
+
 
 
 
@@ -103,3 +107,4 @@ console.log(calcFinalPrice[10, 5, 2])
 */
 
 //CODE HERE
+let customer = { name: 'Kevin', birthday: 'July 5 1991', rewardMember: true, totalPoints: 300, favoriteDish: "Sausage Pizza" };

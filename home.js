@@ -23,8 +23,8 @@
 
 //CODE HERE
 
-const greetUser = (userName) => 'Welcome back, Kevin'
-console.log(userName)
+let greetUser = (username) => { return `Welcome back, ${username}` }
+console.log(greetUser("Kevin));
 
 
 
@@ -54,21 +54,15 @@ const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 
 //CODE HERE
 
-function canWeDeliver = (zipCode) => {
-    let deliveryZone = false
-
-    deliveryAreaZipCodes.forEach(elem) => {
-        if(zipCode === elem) {
-            deliveryZone = true
-        }
-    })
-    if (deliveryZone){
-        return 'We can deliver'
-    } else {
-        return 'We can not deliver'
+function canWeDeliver(zipCode) {
+    if (deliveryAreaZipCodes.includes(zipCode)) {
+        console.log("You're in our delivery zone and are eligible for free delivery!");
+    }
+    else {
+        console.log("Sorry, we can't deliver to that address.");
     }
 }
- console.log(85204)
+canWeDeliver(85204);
 
 
 /* 
@@ -89,7 +83,22 @@ function canWeDeliver = (zipCode) => {
 */
 
 // CODE HERE
-
+function canWeDeliverTwo(zipCode) {
+    let isInZip = false;
+    for (let i = 0; i < deliveryAreaZipCodes.length; i++) {
+        if (deliveryAreaZipCodes[i] === zipCode) {
+            isInZip = true;
+            break;
+        }
+    }
+    if (isInZip) {
+        console.log("You're in our delivery zone and are eligible for free delivery!");
+    }
+    else {
+        console.log("Sorry, we can't deliver to that address.");
+    }
+}
+canWeDeliverTwo(85206);
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -125,7 +134,9 @@ const deals = [
 */
 
 //CODE HERE
-
+console.log(deals[0].title);
+deals[0].title = deals[0].title.replace('15', '10');
+console.log(deals[0].title);
 
 
 /*
@@ -142,3 +153,5 @@ const deals = [
 */
 
 //CODE HERE
+deals[1].desc = deals[1].desc.replace('March', 'April');
+console.log(deals[1].desc);
